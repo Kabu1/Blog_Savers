@@ -10,7 +10,13 @@ app.set('view engine', 'ejs');
  app.listen(3000);
 
  app.get('/', (req, res) => {
-     res.render('index', {title: 'Home'});
+     const blogs = [
+         {title: 'Loving Nodejs', snippet: 'lorem Ipsum'},
+         {title: 'Loving Expressjs', snippet: 'lorem Ipsum'},
+         {title: 'Loving ejs', snippet: 'lorem Ipsum'},
+
+     ];
+     res.render('index', {title: 'Home', blogs});
     //  res.send('<p>HOME PAGE</p>');
     // res.sendFile('./views/index.html', {root: __dirname});
     // console.log('root', {root: __dirname});
