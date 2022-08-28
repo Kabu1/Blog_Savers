@@ -17,15 +17,21 @@ app.set('view engine', 'ejs');
  });
  app.get('/about', (req, res) => {
     // res.send('<p>ABOUT PAGE</p>');
-    res.sendFile('./views/about.html', {root: __dirname});
+    // res.sendFile('./views/about.html', {root: __dirname});
+    res.render('about');
+
 });
 //redirects
-app.get('/about-us', (req, res) => {
-    // res.send('<p>ABOUT PAGE</p>');
-    res.redirect('/about');
-});
+// app.get('/about-us', (req, res) => {
+//     // res.send('<p>ABOUT PAGE</p>');
+//     res.redirect('/about');
+// });
+app.get('/blogs/create', (req, res)=>{
+    res.render('create')
+})
 //404 page
 app.use((req, res) => {
     // res.send('<p>ABOUT PAGE</p>');
-    res.status(404).sendFile('./views/404.html', {root: __dirname});
+    // res.status(404).sendFile('./views/404.html', {root: __dirname});
+    res.status(404).render('404');
 });
