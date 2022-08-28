@@ -20,21 +20,16 @@
             <li> <a href="/blogs/create"> NEW BLOG</a></li>
         </ul>
     </nav>
-    <div class="blogs content">
-        <h2>
-            ALL BLOGS
-        </h2>
-        <% if (blogs.length > 0) { %>
-            <% blogs.forEach(blog => { %>
-                <h3 class="title">
-                    <%= blog.title  %> 
-                </h3>
-                <p class="snippet">
-                    <%=blog.snippet  %> 
-                </p>
-           <% }) %> 
-         
-        <% } %> 
+    <div class="create-blog content">
+       <form action="">
+           <label for="title"> Blog Title</label>
+           <input type="text" id="title" required>
+           <label for="title"> Blog Snippet</label>
+           <input type="text" id="snippet" required>
+           <label for="title"> Blog Body</label>
+           <textarea name="" id="body" required cols="30" rows="10"></textarea>
+           <button type="submit">Submit</button>
+       </form>
     </div>
 </body>
 </html>

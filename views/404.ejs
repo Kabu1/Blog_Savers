@@ -20,21 +20,11 @@
             <li> <a href="/blogs/create"> NEW BLOG</a></li>
         </ul>
     </nav>
-    <div class="blogs content">
+    <div class="not-found content">
         <h2>
-            ALL BLOGS
+            OOPS, page not found :(
         </h2>
-        <% if (blogs.length > 0) { %>
-            <% blogs.forEach(blog => { %>
-                <h3 class="title">
-                    <%= blog.title  %> 
-                </h3>
-                <p class="snippet">
-                    <%=blog.snippet  %> 
-                </p>
-           <% }) %> 
-         
-        <% } %> 
     </div>
+   
 </body>
 </html>
