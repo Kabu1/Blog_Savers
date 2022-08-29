@@ -3,8 +3,10 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/blog-savers?retryWrites=true&w=majority'
-mongoose.connect(dbURI);
+const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(dbURI)
+.then((result)=>  app.listen(3000))
+.catch((err) => console.log(err));
 //express app
 const app = express();
 //3rd party middleware
@@ -15,7 +17,6 @@ app.set('view engine', 'ejs');
 
 
 // listen for requests
- app.listen(3000);
 
  //middleware morgan
 app.use(morgan('dev'));
