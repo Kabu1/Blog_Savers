@@ -1,10 +1,12 @@
 const express = require('express');
+const morgan = require('morgan');
 
+//connect to mongodb
+const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/?retryWrites=true&w=majority'
 //express app
 const app = express();
 //3rd party middleware
 //middleware code which runs on the server between getting a request and sending a response
-const morgan = require('morgan');
 //
 //register view engine after express
 app.set('view engine', 'ejs');
