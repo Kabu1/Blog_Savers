@@ -2,12 +2,23 @@ const express = require('express');
 
 //express app
 const app = express();
+//3rd party middleware
+//middleware code which runs on the server between getting a request and sending a response
+const morgan = require('morgan');
+//
 //register view engine after express
 app.set('view engine', 'ejs');
 
 
 // listen for requests
  app.listen(3000);
+
+ //middleware morgan
+app.use(morgan('dev'));
+
+//middleware and static files
+app.use(express.static('public'));
+
 
  app.get('/', (req, res) => {
      const blogs = [
