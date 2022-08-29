@@ -1,8 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/blog-savers?retryWrites=true&w=majority'
+mongoose.connect(dbURI);
 //express app
 const app = express();
 //3rd party middleware
