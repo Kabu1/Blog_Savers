@@ -1,9 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Blog = require('./models/blog');
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://kabu1:XkZu7IqNVN7XsNgd@blog.8s2n36y.mongodb.net/blog-savers?retryWrites=true&w=majority'
 mongoose.connect(dbURI)
 .then((result)=>  app.listen(3000))
 .catch((err) => console.log(err));
@@ -20,6 +21,22 @@ app.set('view engine', 'ejs');
 
  //middleware morgan
 app.use(morgan('dev'));
+
+//mongoose and mongo sandbox routes
+app.get('/add-blog', (req, res) =>{
+    const blog = new Blog({
+        title: 'new blog',
+        snippet:'about my new blog',
+        body: 'more about my new blog'
+    });
+    blog.save()
+    .then((result) =>{
+        res.send(result)
+    })
+    .catch((err) =>{
+        console.log(err);
+    })
+})
 
 //middleware and static files
 app.use(express.static('public'));
